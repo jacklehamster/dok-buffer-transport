@@ -88,4 +88,29 @@ describe('BufferTransport', function() {
 		expect(value[1].getInt8(4)).to.equal(4);
 		expect(value[1].getInt8(5)).to.equal(5);
 	});
+
+	it('should retrieve payload', function() {
+		const bt = new BufferTransport();
+		let value = 0;
+		bt.register({
+			id: 123,
+			parameters: "uint,uint",
+			apply: (a, b) => value = [a, b],
+		});
+		bt.sendGLBuffer(123, 1, 2);
+		const { byteCount, dataView } = bt.retrievePayload();
+		expect(byteCount).to.equal(9);
+		expect(dataView.getUint8(0)).to.equal(123);
+		expect(dataView.getUint32(1, true)).to.equal(1);
+		expect(dataView.getUint32(5, true)).to.equal(2);
+
+		const payload2 = bt.retrievePayload();
+		expect(payload2.dataView).to.be.null;
+		expect(payload2.byteCount).to.equal(0);
+		expect(value).to.equal(0);
+
+		bt.setup(dataView, byteCount);
+		bt.apply();
+		expect(value).to.deep.equal([1, 2]);
+	});
 });

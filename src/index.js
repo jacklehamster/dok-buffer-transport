@@ -120,8 +120,8 @@ class BufferTransport {
 		this.lastGLBuffer.offset = -1;
 	}
 
-	getPayload() {
-		return this.payloadProducer.getPayload();
+	retrievePayload() {
+		return this.payloadProducer.retrievePayload();
 	}
 
 	returnBuffer(dataView) {

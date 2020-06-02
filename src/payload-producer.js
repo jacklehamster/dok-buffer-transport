@@ -594,13 +594,12 @@ class PayloadProducer {
 		}
 	}
 
-	getPayload() {
-		if (!this.byteCount) {
-			return this.payloadPool.get(true);
-		}
+	retrievePayload() {
 		const payload = this.payloadPool.get();
 		payload.dataView = this.dataView;
 		payload.byteCount = this.byteCount;
+		this.dataView = null;
+		this.byteCount = 0;
 		return payload;
 	}
 }
