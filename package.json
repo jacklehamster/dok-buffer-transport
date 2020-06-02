@@ -1,0 +1,28 @@
+{
+  "name": "dok-buffer-transport",
+  "version": "1.0.0",
+  "description": "System for serializing and transporting data via ArrayBuffer between a worker and a main thread.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha src/index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacklehamster/dok-buffer-transport.git"
+  },
+  "keywords": [
+    "dok"
+  ],
+  "author": "Vincent Le Quang <vincentlequang@gmail.com> (https://jacklehamster.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacklehamster/dok-buffer-transport/issues"
+  },
+  "homepage": "https://github.com/jacklehamster/dok-buffer-transport#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "dok-pool": "^1.0.46",
+    "dok-utils": "^1.0.1",
+    "mocha": "^7.2.0"
+  }
+}
