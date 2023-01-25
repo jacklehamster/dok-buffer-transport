@@ -1,6 +1,6 @@
 {
   "name": "dok-buffer-transport",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "System for serializing and transporting data via ArrayBuffer between a worker and a main thread.",
   "main": "src/index.js",
   "scripts": {
